@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Geotag Viewer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGJhY2tncm91bmR8ZW58MHx8fHwxNjYyMjY5MjY0&ixlib=rb-1.2.1&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        #map {
+            height: 500px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .upload-section {
+            margin: 20px 0;
+        }
+        .feedback {
+            margin-top: 10px;
+            color: #ffcc00;
+        }
+        h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        button {
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .image-preview {
+            max-width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .spinner-border {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Image Geotag Viewer</h1>
+        <div class="upload-section text-center">
+            <input type="file" id="imageUpload" accept="image/*" class="form-control-file">
+            <button id="uploadButton" class="btn btn-primary mt-2">Upload Image</button>
+            <button id="resetButton" class="btn btn-secondary mt-2" style="display: none;">Reset</button>
+            <div class="spinner-border text-light mt-2" role="status" id="loadingSpinner">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <img id="imagePreview" class="image-preview" style="display: none;">
+        <div id="map"></div>
+        <div id="feedback" class="feedback text-center"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
